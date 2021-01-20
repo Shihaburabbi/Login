@@ -6,12 +6,17 @@ import { TextInput, Button, DefaultTheme } from 'react-native-paper';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import images from '../constents/images';
 
-const Login = () => {
+const theme = {
+    ...DefaultTheme,
+    colors: {
+        ...DefaultTheme.colors,
+        text: "orange",
+    }
+};
+
+const Register = () => {
     const navigation = useNavigation();
 
-    const _Login = () => {
-        navigation.navigate("Register")
-    }
 
     return (
         // <ImageBackground source={images.bgImage} style={{flex:1}}>
@@ -20,17 +25,36 @@ const Login = () => {
             <Image source={images.imageTop} style={{ height: 130, width: 180, alignSelf: 'flex-end', top: -12, left: 10 }} />
 
 
-            <View style={{ alignItems: 'center', marginBottom: 80, marginTop: 80 }}>
+            <View style={{ alignItems: 'center', marginBottom: 80, marginTop: 10 }}>
                 <Text style={{ fontSize: 35, fontWeight: '700', fontFamily: "Galada-Regular" }}>
-                    হ্যালো
+                    অ্যাকাউন্ট তৈরি করুন
                 </Text>
-                <Text style={{ fontSize: 18, fontFamily: "HindSiliguri-Regular" }}>
-                    আপনার অ্যাকাউন্টে সাইন ইন করুন
-                
-                </Text>
-
             </View>
 
+
+            <View style={{ justifyContent: 'center', alignItems: 'center', marginBottom: 10, }}>
+                <TextInput
+                    label='নাম'
+                    mode="outlined"
+                    style={{
+                        borderRadius: 5, width: '85%', height: 45,
+                        backgroundColor: '#FFF'
+                    }}
+                    theme={{ colors: { text: 'black', primary: 'rgb(33, 151, 186)' } }}
+                />
+            </View>
+
+            <View style={{ justifyContent: 'center', alignItems: 'center', marginBottom: 10, }}>
+                <TextInput
+                    label='পদবি'
+                    mode="outlined"
+                    style={{
+                        borderRadius: 5, width: '85%', height: 45,
+                        backgroundColor: '#FFF'
+                    }}
+                    theme={{ colors: { text: 'black', primary: 'rgb(33, 151, 186)' } }}
+                />
+            </View>
 
             <View style={{ justifyContent: 'center', alignItems: 'center', marginBottom: 10, }}>
                 <TextInput
@@ -57,15 +81,7 @@ const Login = () => {
                 />
             </View>
 
-            <View style={{ alignItems: 'flex-end', marginRight: 25, marginTop: 10 }}>
-                <TouchableOpacity>
-                    <Text style={{ fontSize: 16, fontFamily: "HindSiliguri-Regular" }}>
-                        পাসওয়ার্ড ভুলে গেছেন?
-</Text>
-                </TouchableOpacity>
-            </View>
-
-            <View style={{ alignItems: 'flex-end', marginRight: 25, marginTop: 60, justifyContent: 'center' }}>
+            <View style={{ alignItems: 'flex-end', marginRight: 25, marginTop: 40, justifyContent: 'center' }}>
                 <TouchableOpacity >
 
                     <LinearGradient
@@ -74,11 +90,11 @@ const Login = () => {
                         colors={['#f7c356', '#fcb14c', '#fcaf47', '#fea13a']}
                         style={{
                             justifyContent: 'center', alignItems: 'center', marginLeft: 10,
-                            height: 55, width: 140, alignSelf: 'center', borderRadius: 30, top: 2, flexDirection: 'row'
+                            height: 55, width: 200, alignSelf: 'center', borderRadius: 30, top: 2, flexDirection: 'row'
                         }}>
                         <Text style={{ fontSize: 30 }}>
-                            লগইন
-</Text>
+                            সাইন আপ
+                    </Text>
                         <Ionicons name="arrow-forward" style={{ fontSize: 35 }} />
                     </LinearGradient>
                 </TouchableOpacity>
@@ -86,11 +102,10 @@ const Login = () => {
 
             <View style={{ alignItems: 'center', marginTop: 80, }}>
                 <View style={{ flexDirection: 'row' }}>
-                    <Text style={{ fontFamily: "HindSiliguri-Regular" }}>কোন অ্যাকাউন্ট নেই?  </Text>
-                    <TouchableOpacity
-                        onPress={_Login}>
+                    <Text style={{ fontFamily: "HindSiliguri-Regular" }}>ইতিমধ্যে একটি একাউন্ট আছে?  </Text>
+                    <TouchableOpacity onPress={() => navigation.navigate("Login")}>
                         <Text style={{ fontSize: 16, fontWeight: '700', fontFamily: "Galada-Regular" }}>
-                            নিবন্ধন করুন
+                            লগইন
                 </Text>
                     </TouchableOpacity>
                 </View>
@@ -114,4 +129,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default Login;
+export default Register;
