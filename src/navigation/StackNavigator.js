@@ -6,6 +6,7 @@ import Profile from "../screen/Profile";
 import AddToCard from "../screen/AddToCard";
 import Login from "../screen/Login";
 import Register from "../screen/Register";
+import LanguageSelectionScreen from '../constents/LanguageSelectionScreen';
 
 const Stack = createStackNavigator();
 
@@ -25,6 +26,7 @@ const MainStackNavigator = () => {
             <Stack.Screen name="Profile" component={Profile} />
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Register" component={Register} />
+            <Stack.Screen name="LanguageSelectionScreen" component={LanguageSelectionScreen} />
         </Stack.Navigator>
     );
 }
